@@ -1,0 +1,80 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "Aurenia",
+  "version": "0.1.0",
+  "identifier": "com.aurenia.dev",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:5173",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Aurenia",
+        "width": 1366,
+        "height": 768,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "msi",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "externalBin": [
+      "runtime/llama-batched-bench",
+      "runtime/llama-bench",
+      "runtime/llama-cli",
+      "runtime/llama-gemma3-cli",
+      "runtime/llama-gguf-split",
+      "runtime/llama-imatrix",
+      "runtime/llama-llava-cli",
+      "runtime/llama-minicpmv-cli",
+      "runtime/llama-mtmd-cli",
+      "runtime/llama-perplexity",
+      "runtime/llama-quantize",
+      "runtime/llama-qwen2vl-cli",
+      "runtime/llama-run",
+      "runtime/llama-server",
+      "runtime/llama-tokenize",
+      "runtime/llama-tts",
+      "runtime/rpc-server"
+    ],
+    "resources": [
+      "cublas64_12.dll",
+      "cublasLt64_12.dll",
+      "cudart64_12.dll",
+      "ggml-base.dll",
+      "ggml-cpu-alderlake.dll",
+      "ggml-cpu-haswell.dll",
+      "ggml-cpu-icelake.dll",
+      "ggml-cpu-sandybridge.dll",
+      "ggml-cpu-sapphirerapids.dll",
+      "ggml-cpu-skylakex.dll",
+      "ggml-cpu-sse42.dll",
+      "ggml-cpu-x64.dll",
+      "ggml-cuda.dll",
+      "ggml-rpc.dll",
+      "ggml.dll",
+      "libcurl-x64.dll",
+      "libomp140.x86_64.dll",
+      "llama.dll",
+      "mtmd.dll",
+      "ocr_models/ch_PP-OCRv5_mobile_det.onnx",
+      "ocr_models/ch_PP-OCRv5_rec_mobile_infer.onnx",
+      "ocr_models/ch_ppocr_mobile_v2.0_cls_infer.onnx"
+    ]
+  }
+}

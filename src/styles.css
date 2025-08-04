@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Inter";
+  src: url("/public/fonts/Inter-VariableFont.ttf") format("truetype");
+  font-weight: 100 900; /* range of weights */
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400; /* or 600, 700, etc */
+}
+
+#main-container {
+  height: calc(100vh - var(--header-height, 0px));
+}
+
+#pdf-container::-webkit-scrollbar {
+  display: none;
+}
+#mcq-container::-webkit-scrollbar {
+  display: none;
+}
+#mcq-results-container::-webkit-scrollbar {
+  display: none;
+}
+
+#ai-result-popup::-webkit-scrollbar {
+  display: none;
+}
+#language-select::-webkit-scrollbar {
+  display: none;
+}
+
+#books-outer-container::-webkit-scrollbar {
+  display: none;
+}
+
+#companion-button {
+  position: absolute;
+  top: calc(10px + var(--header-height, 0px));
+  right: 8px;
+}
+.assistant-chat-bubble p {
+  margin-bottom: 0.5em;
+}
+.assistant-chat-bubble p:last-child {
+  margin-bottom: 0;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+@plugin 'tailwind-scrollbar';

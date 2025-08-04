@@ -1,0 +1,343 @@
+#pdf-container {
+  /* Copyright 2014 Mozilla Foundation
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+}
+#pdf-container .textLayer {
+  position: absolute;
+  text-align: initial;
+  inset: 0;
+  overflow: clip;
+  opacity: 1;
+  line-height: 1;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
+  forced-color-adjust: none;
+  transform-origin: 0 0;
+  caret-color: CanvasText;
+  z-index: 0;
+}
+#pdf-container .textLayer :is(span, br) {
+  color: transparent;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0% 0%;
+}
+#pdf-container .textLayer > :not(.markedContent) {
+  z-index: 1;
+}
+#pdf-container .textLayer span[role="img"] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+#pdf-container .textLayer ::-moz-selection {
+  background: rgba(0, 0, 255, 0.25);
+  background: color-mix(in srgb, AccentColor, transparent 75%);
+}
+#pdf-container .textLayer ::selection {
+  background: rgba(0, 0, 255, 0.25);
+  background: color-mix(in srgb, AccentColor, transparent 75%);
+}
+#pdf-container .textLayer br::-moz-selection {
+  background: transparent;
+}
+#pdf-container .textLayer br::selection {
+  background: transparent;
+}
+#pdf-container .textLayer .endOfContent {
+  display: block;
+  position: absolute;
+  inset: 100% 0 0;
+  z-index: 0;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+#pdf-container .annotationLayer {
+  --csstools-color-scheme--light: initial;
+  color-scheme: only light;
+  --annotation-unfocused-field-background: url("data:image/svg+xml;charset=UTF-8,<svg width='1px' height='1px' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill:rgba(0, 54, 255, 0.13);'/></svg>");
+  --input-focus-border-color: Highlight;
+  --input-focus-outline: 1px solid Canvas;
+  --input-unfocused-border-color: transparent;
+  --input-disabled-border-color: transparent;
+  --input-hover-border-color: black;
+  --link-outline: none;
+}
+@media screen and (forced-colors: active) {
+  #pdf-container .annotationLayer {
+    --input-focus-border-color: CanvasText;
+    --input-unfocused-border-color: ActiveText;
+    --input-disabled-border-color: GrayText;
+    --input-hover-border-color: Highlight;
+    --link-outline: 1.5px solid LinkText;
+  }
+  #pdf-container .annotationLayer .linkAnnotation {
+    outline: var(--link-outline);
+  }
+  #pdf-container :is(.annotationLayer .linkAnnotation):hover {
+    -webkit-backdrop-filter: var(--hcm-highlight-filter);
+    backdrop-filter: var(--hcm-highlight-filter);
+  }
+  #pdf-container :is(.annotationLayer .linkAnnotation) > a:hover {
+    opacity: 0 !important;
+    background: none !important;
+    box-shadow: none;
+  }
+}
+#pdf-container .annotationLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  transform-origin: 0 0;
+}
+#pdf-container .annotationLayer section {
+  position: absolute;
+  text-align: initial;
+  pointer-events: auto;
+  box-sizing: border-box;
+  transform-origin: 0 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+#pdf-container
+  .annotationLayer
+  :is(.linkAnnotation)
+  > a {
+  position: absolute;
+  font-size: 1em;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#pdf-container
+  .annotationLayer
+  :is(.linkAnnotation):not(.hasBorder)
+  > a:hover {
+  opacity: 0.2;
+  background-color: rgb(255, 255, 0);
+}
+#pdf-container :root {
+  --xfa-unfocused-field-background: url("data:image/svg+xml;charset=UTF-8,<svg width='1px' height='1px' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill:rgba(0, 54, 255, 0.13);'/></svg>");
+  --xfa-focus-outline: auto;
+}
+@media screen and (forced-colors: active) {
+  #pdf-container :root {
+    --xfa-focus-outline: 2px solid CanvasText;
+  }
+}
+#pdf-container :root {
+  --clear-signature-button-icon: url(images/editor-toolbar-delete.svg);
+  --csstools-light-dark-toggle--40: var(--csstools-color-scheme--light) #2b2a33;
+  --signature-bg: var(--csstools-light-dark-toggle--40, #f9f9fb);
+  --csstools-light-dark-toggle--41: var(--csstools-color-scheme--light)
+    var(--signature-bg);
+  --signature-hover-bg: var(--csstools-light-dark-toggle--41, #f0f0f4);
+  --button-signature-bg: transparent;
+  --button-signature-color: var(--main-color);
+  --csstools-light-dark-toggle--42: var(--csstools-color-scheme--light) #5b5b66;
+  --button-signature-active-bg: var(--csstools-light-dark-toggle--42, #cfcfd8);
+  --button-signature-active-border: none;
+  --button-signature-active-color: var(--button-signature-color);
+  --button-signature-border: none;
+  --csstools-light-dark-toggle--43: var(--csstools-color-scheme--light) #52525e;
+  --button-signature-hover-bg: var(--csstools-light-dark-toggle--43, #e0e0e6);
+  --button-signature-hover-color: var(--button-signature-color);
+}
+@supports (color: light-dark(red, red)) {
+  #pdf-container :root {
+    --signature-bg: light-dark(#f9f9fb, #2b2a33);
+    --signature-hover-bg: light-dark(#f0f0f4, var(--signature-bg));
+    --button-signature-active-bg: light-dark(#cfcfd8, #5b5b66);
+    --button-signature-hover-bg: light-dark(#e0e0e6, #52525e);
+  }
+}
+@supports not (color: light-dark(tan, tan)) {
+  #pdf-container :root * {
+    --csstools-light-dark-toggle--40: var(--csstools-color-scheme--light)
+      #2b2a33;
+    --signature-bg: var(--csstools-light-dark-toggle--40, #f9f9fb);
+    --csstools-light-dark-toggle--41: var(--csstools-color-scheme--light)
+      var(--signature-bg);
+    --signature-hover-bg: var(--csstools-light-dark-toggle--41, #f0f0f4);
+    --csstools-light-dark-toggle--42: var(--csstools-color-scheme--light)
+      #5b5b66;
+    --button-signature-active-bg: var(
+      --csstools-light-dark-toggle--42,
+      #cfcfd8
+    );
+    --csstools-light-dark-toggle--43: var(--csstools-color-scheme--light)
+      #52525e;
+    --button-signature-hover-bg: var(--csstools-light-dark-toggle--43, #e0e0e6);
+  }
+}
+@media screen and (forced-colors: active) {
+  #pdf-container :root {
+    --signature-bg: HighlightText;
+    --signature-hover-bg: var(--signature-bg);
+    --button-signature-bg: HighlightText;
+    --button-signature-color: ButtonText;
+    --button-signature-active-bg: ButtonText;
+    --button-signature-active-color: HighlightText;
+    --button-signature-border: 1px solid ButtonText;
+    --button-signature-hover-bg: Highlight;
+    --button-signature-hover-color: HighlightText;
+  }
+}
+#pdf-container :root {
+  --outline-width: 2px;
+  --outline-color: #0060df;
+  --outline-around-width: 1px;
+  --outline-around-color: #f0f0f4;
+  --hover-outline-around-color: var(--outline-around-color);
+  --focus-outline: solid var(--outline-width) var(--outline-color);
+  --unfocus-outline: solid var(--outline-width) transparent;
+  --focus-outline-around: solid var(--outline-around-width)
+    var(--outline-around-color);
+  --hover-outline-color: #8f8f9d;
+  --hover-outline: solid var(--outline-width) var(--hover-outline-color);
+  --hover-outline-around: solid var(--outline-around-width)
+    var(--hover-outline-around-color);
+  --freetext-line-height: 1.35;
+  --freetext-padding: 2px;
+  --resizer-bg-color: var(--outline-color);
+  --resizer-size: 6px;
+  --resizer-shift: calc(
+    0px - (var(--outline-width) + var(--resizer-size)) / 2 -
+      var(--outline-around-width)
+  );
+  --editorFreeText-editing-cursor: text;
+  --editorInk-editing-cursor: url(images/cursor-editorInk.svg) 0 16, pointer;
+  --editorHighlight-editing-cursor: url(images/cursor-editorTextHighlight.svg)
+      24 24,
+    text;
+  --editorFreeHighlight-editing-cursor: url(images/cursor-editorFreeHighlight.svg)
+      1 18,
+    pointer;
+  --new-alt-text-warning-image: url(images/altText_warning.svg);
+}
+@media (min-resolution: 1.1dppx) {
+  #pdf-container :root {
+    --editorFreeText-editing-cursor: url(images/cursor-editorFreeText.svg) 0 16,
+      text;
+  }
+}
+@media screen and (forced-colors: active) {
+  #pdf-container :root {
+    --outline-color: CanvasText;
+    --outline-around-color: ButtonFace;
+    --resizer-bg-color: ButtonText;
+    --hover-outline-color: Highlight;
+    --hover-outline-around-color: SelectedItemText;
+  }
+}
+#pdf-container :root {
+  --csstools-color-scheme--light: initial;
+  color-scheme: light dark;
+  --viewer-container-height: 0;
+  --pdfViewer-padding-bottom: 0;
+  --page-margin: 1px auto -8px;
+  --page-border: 9px solid transparent;
+  --spreadHorizontalWrapped-margin-LR: -3.5px;
+  --loading-icon-delay: 400ms;
+  --csstools-light-dark-toggle--62: var(--csstools-color-scheme--light) #0df;
+  --focus-ring-color: var(--csstools-light-dark-toggle--62, #0060df);
+  --focus-ring-outline: 2px solid var(--focus-ring-color);
+}
+@supports (color: light-dark(red, red)) {
+  #pdf-container :root {
+    --focus-ring-color: light-dark(#0060df, #0df);
+  }
+}
+@supports not (color: light-dark(tan, tan)) {
+  #pdf-container :root * {
+    --csstools-light-dark-toggle--62: var(--csstools-color-scheme--light) #0df;
+    --focus-ring-color: var(--csstools-light-dark-toggle--62, #0060df);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  #pdf-container :root {
+    --csstools-color-scheme--light: ;
+  }
+}
+@media screen and (forced-colors: active) {
+  #pdf-container :root {
+    --pdfViewer-padding-bottom: 9px;
+    --page-margin: 8px auto -1px;
+    --page-border: 1px solid CanvasText;
+    --spreadHorizontalWrapped-margin-LR: 3.5px;
+    --focus-ring-color: CanvasText;
+  }
+}
+#pdf-container .pdfViewer {
+  --scale-factor: 1;
+  --page-bg-color: unset;
+  padding-bottom: var(--pdfViewer-padding-bottom);
+  --hcm-highlight-filter: none;
+  --hcm-highlight-selected-filter: none;
+}
+@media screen and (forced-colors: active) {
+  #pdf-container .pdfViewer {
+    --hcm-highlight-filter: invert(100%);
+  }
+}
+#pdf-container .pdfViewer .canvasWrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+#pdf-container :is(.pdfViewer .canvasWrapper) canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  contain: content;
+}
+#pdf-container .pdfViewer .page {
+  --user-unit: 1;
+  --total-scale-factor: calc(var(--scale-factor) * var(--user-unit));
+  --scale-round-x: 1px;
+  --scale-round-y: 1px;
+  direction: ltr;
+  width: 816px;
+  height: 1056px;
+  margin: var(--page-margin);
+  position: relative;
+  overflow: visible;
+  border: var(--page-border);
+  background-clip: content-box;
+  background-color: var(--page-bg-color, rgb(255, 255, 255));
+}
+#pdf-container .pdfViewer.singlePageView {
+  display: inline-block;
+}
+#pdf-container .pdfViewer.singlePageView .page {
+  margin: 0;
+  border: none;
+}
+#pdf-container .pdfViewer .page:not(.loading)::after {
+  transition-property: none;
+  display: none;
+}
