@@ -6,7 +6,7 @@
 
 <div align="center">
   <a href="https://github.com/inventwithdean/aurenia/releases/latest"><img src="https://img.shields.io/github/v/release/inventwithdean/aurenia?style=for-the-badge" alt="Latest Release"></a>
-  <a href="https://github.com/inventwithdean/aurenia/blob/main/LICESE"><img src="https://img.shields.io/github/license/inventwithdean/aurenia?style=for-the-badge" alt="License"></a>
+  <a href="https://github.com/inventwithdean/aurenia/blob/main/LICENSE"><img src="https://img.shields.io/github/license/inventwithdean/aurenia?style=for-the-badge" alt="License"></a>
   <a href="https://github.com/inventwithdean/aurenia/stargazers"><img src="https://img.shields.io/github/stars/inventwithdean/aurenia?style=for-the-badge" alt="Stars"></a>
 </div>
 
