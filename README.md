@@ -53,9 +53,9 @@ Aurenia is built with a modern, performance-focused stack:
 Getting started with Aurenia is easy:
 
 1.  **Download the Installer:** Go to the [**Latest Release**](https://github.com/inventwithdean/aurenia/releases/latest) page and download the `.msi` file for Windows.
-2.  **Download the Models (Prefer Quantized):** You need two model files to run Aurenia.
-    * Download the LLM: [Gemma 3n GGUF](https://huggingface.co/unsloth/gemma-3n-E4B-it-GGUF)
-    * Download the Embedding Model: [`multilingual-e5-large` GGUF](https://huggingface.co/phate334/multilingual-e5-large-gguf)
+2.  **Download the GGUF Models (Prefer Quantized):** You need two model files to run Aurenia.
+    * Download the LLM: [`Gemma 3n`](https://huggingface.co/unsloth/gemma-3n-E4B-it-GGUF)
+    * Download the Embedding Model: [`multilingual-e5-large`](https://huggingface.co/phate334/multilingual-e5-large-gguf)
 3.  **Place Models in Directory:** After installing Aurenia, place the two `.gguf` files you downloaded into the application's installation directory.
 4.  Rename the `Gemma-3n`'s gguf to `model.gguf` and `multilingual-e5-large`'s gguf to `emb_model.gguf`
 5.  **Launch Aurenia:** That's it! You can now open any PDF and start studying.
