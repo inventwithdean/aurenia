@@ -62,7 +62,7 @@ Getting started with Aurenia is easy:
 
 ## Find Out More
 
-* **▶️ Watch the Full Video Demo:** [https://youtu.be/doVjMl41yZY]
+* **▶️ Watch the Full Video Demo:** [https://youtu.be/n_-dwJi9wO8]
 * **📄 Read the Technical Blog Post:** [https://inventwithdean.github.io/blog/aurenia/]
 
 ## License
